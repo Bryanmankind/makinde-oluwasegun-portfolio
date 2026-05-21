@@ -10,7 +10,7 @@ export default function App() {
       <div className="relative z-10">
         <Navbar />
         
-        <main className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 py-24 space-y-32">
+        <main className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 pt-28 pb-20 space-y-24 lg:space-y-32">
           <Hero />
           <Stats />
           <Skills />
@@ -30,7 +30,7 @@ function Navbar() {
     <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#050505]/70 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 h-20 flex items-center justify-between">
         <span className="font-mono font-bold text-xl tracking-tighter">
-          MO<span className="text-[#00ff88]">_</span>
+          MAKINDE OLUWASEGUN<span className="text-[#00ff88]">_</span>
         </span>
         <div className="hidden md:flex items-center gap-8 text-sm font-mono tracking-widest uppercase text-gray-400">
           <a href="#about" className="hover:text-white transition-colors">About</a>
@@ -51,38 +51,64 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section id="about" className="pt-20 min-h-[80vh] flex flex-col justify-center items-start">
+    <section id="about" className="min-h-[70vh] flex flex-col justify-center items-start pb-12 lg:pb-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
+        className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16 w-full"
       >
-        <p className="font-mono text-[#00ff88] mb-4 tracking-widest uppercase text-sm">
-          // Init: Makinde Oluwasegun
-        </p>
-        <h1 className="text-5xl sm:text-7xl font-bold tracking-tighter mb-6">
-          Hardening <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-blue-500">
-            Decentralized
-          </span> Protocols.
-        </h1>
-        <p className="text-gray-400 text-lg sm:text-xl max-w-2xl leading-relaxed mb-10 font-sans">
-          Software Engineer specializing in smart contract security, modular backend architecture, and high-throughput blockchain infrastructure. I bridge the gap between secure on-chain logic and robust off-chain systems.
-        </p>
-        
-        <div className="flex flex-wrap gap-4">
-          <a 
-            href="#projects"
-            className="flex items-center gap-2 bg-white text-black px-6 py-3 font-semibold hover:bg-gray-200 transition-colors"
-          >
-            View Projects <ArrowRight size={18} />
-          </a>
-          <a 
-            href="#audits"
-            className="flex items-center gap-2 border border-white/20 text-white px-6 py-3 font-semibold hover:border-[#00ff88] hover:text-[#00ff88] transition-colors"
-          >
-            Security Audits
-          </a>
+        <div className="flex-1 w-full max-w-2xl">
+          <p className="font-mono text-[#00ff88] mb-4 tracking-widest uppercase text-sm">
+            Makinde Oluwasegun
+          </p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">
+            Blockchain Developer <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-blue-500">
+              & Security
+            </span> Researcher.
+          </h1>
+          <p className="text-[#00ff88] font-mono text-base sm:text-lg mb-6">
+            Full-Stack Blockchain Dev
+          </p>
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl leading-relaxed mb-8 font-sans">
+            Blockchain software engineer specializing in smart contract audits, modular backend architecture, and high-throughput blockchain infrastructure. I bridge the gap between secure on-chain logic and robust off-chain AI systems.
+          </p>
+          
+          <div className="flex flex-wrap gap-4">
+            <a 
+              href="#projects"
+              className="flex items-center gap-2 bg-white text-black px-6 py-3 font-semibold hover:bg-gray-200 transition-colors"
+            >
+              View Projects <ArrowRight size={18} />
+            </a>
+            <a 
+              href="#audits"
+              className="flex items-center gap-2 border border-white/20 text-white px-6 py-3 font-semibold hover:border-[#00ff88] hover:text-[#00ff88] transition-colors"
+            >
+              Security Audits
+            </a>
+          </div>
+        </div>
+
+        <div className="flex-shrink-0 relative w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[380px] h-[300px] sm:h-[360px] lg:h-[440px] mx-auto lg:mx-0 mt-8 lg:mt-0">
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#00ff88] to-blue-500 blur-[90px] opacity-20"></div>
+          <div className="relative w-full h-full">
+            <img 
+              src="/profile.jpg" 
+              alt="Makinde Oluwasegun" 
+              className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
+              style={{
+                maskImage: 'radial-gradient(ellipse at 50% 40%, black 40%, transparent 80%)',
+                WebkitMaskImage: 'radial-gradient(ellipse at 50% 40%, black 40%, transparent 80%)'
+              }}
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=Makinde+Oluwasegun&background=050505&color=00ff88&size=512`;
+                (e.target as HTMLImageElement).style.maskImage = 'none';
+                (e.target as HTMLImageElement).style.webkitMaskImage = 'none';
+              }}
+            />
+          </div>
         </div>
       </motion.div>
     </section>
