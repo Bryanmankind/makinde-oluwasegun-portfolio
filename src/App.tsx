@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Terminal, Code, ExternalLink, Github, Linkedin, Mail, Twitter, ArrowRight, Layers, Cpu, Server } from 'lucide-react';
+import { ShieldCheck, Terminal, Code, ExternalLink, Github, Linkedin, Mail, Twitter, ArrowRight, Layers, Cpu, Server, Download } from 'lucide-react';
 
 export default function App() {
   return (
@@ -10,9 +10,13 @@ export default function App() {
       <div className="relative z-10">
         <Navbar />
         
-        <main className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 pt-28 pb-20 space-y-24 lg:space-y-32">
-          <Hero />
-          <Stats />
+        <main id="about" className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 pt-20 pb-16 space-y-16 lg:space-y-20">
+          <div>
+            <Hero />
+            <div className="mt-6 lg:mt-10">
+              <Stats />
+            </div>
+          </div>
           <Skills />
           <Audits />
           <Projects />
@@ -38,12 +42,21 @@ function Navbar() {
           <a href="#projects" className="hover:text-white transition-colors">Projects</a>
           <a href="#contact" className="hover:text-white transition-colors">Contact</a>
         </div>
-        <a 
-          href="#contact" 
-          className="border border-[#00ff88]/50 text-[#00ff88] hover:bg-[#00ff88] hover:text-black px-5 py-2 font-mono text-sm uppercase tracking-wide transition-all"
-        >
-          Hire Me
-        </a>
+        <div className="flex items-center gap-4">
+          <a 
+            href="/cv.pdf" 
+            download
+            className="hidden sm:flex items-center gap-2 text-white hover:text-[#00ff88] transition-colors font-mono text-sm uppercase tracking-wide"
+          >
+            <Download size={16} /> CV
+          </a>
+          <a 
+            href="#contact" 
+            className="border border-[#00ff88]/50 text-[#00ff88] hover:bg-[#00ff88] hover:text-black px-5 py-2 font-mono text-sm uppercase tracking-wide transition-all"
+          >
+            Hire Me
+          </a>
+        </div>
       </div>
     </nav>
   );
@@ -51,47 +64,51 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section id="about" className="min-h-[70vh] flex flex-col justify-center items-start pb-12 lg:pb-20">
+    <section className="flex flex-col justify-center items-start pb-4 lg:pb-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16 w-full"
+        className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12 w-full"
       >
         <div className="flex-1 w-full max-w-2xl">
-          <p className="font-mono text-[#00ff88] mb-4 tracking-widest uppercase text-sm">
-            Makinde Oluwasegun
-          </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter mb-3">
             Blockchain Developer <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-blue-500">
               & Security
             </span> Researcher.
           </h1>
-          <p className="text-[#00ff88] font-mono text-base sm:text-lg mb-6">
-            Full-Stack Blockchain Dev
+          <p className="text-[#00ff88] font-mono text-sm sm:text-base mb-3">
+            Full-Stack Blockchain Dev for AI
           </p>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl leading-relaxed mb-8 font-sans">
-            Blockchain software engineer specializing in smart contract audits, modular backend architecture, and high-throughput blockchain infrastructure. I bridge the gap between secure on-chain logic and robust off-chain AI systems.
+          <p className="text-gray-400 text-sm sm:text-base max-w-2xl leading-relaxed mb-6 font-sans">
+            Software Engineer with over 5 years of experience specializing in smart contract audits, modular backend architecture, and high-throughput blockchain infrastructure. I bridge the gap between secure on-chain logic and robust off-chain AI systems.
           </p>
           
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3">
             <a 
               href="#projects"
-              className="flex items-center gap-2 bg-white text-black px-6 py-3 font-semibold hover:bg-gray-200 transition-colors"
+              className="flex items-center gap-2 bg-white text-black px-5 py-2.5 font-semibold hover:bg-gray-200 transition-colors text-sm"
             >
-              View Projects <ArrowRight size={18} />
+              View Projects <ArrowRight size={16} />
             </a>
             <a 
               href="#audits"
-              className="flex items-center gap-2 border border-white/20 text-white px-6 py-3 font-semibold hover:border-[#00ff88] hover:text-[#00ff88] transition-colors"
+              className="flex items-center gap-2 border border-white/20 text-white px-5 py-2.5 font-semibold hover:border-[#00ff88] hover:text-[#00ff88] transition-colors text-sm"
             >
               Security Audits
+            </a>
+            <a 
+              href="/cv.pdf"
+              download
+              className="flex items-center gap-2 border border-white/20 text-white px-5 py-2.5 font-semibold hover:border-[#00ff88] hover:text-[#00ff88] transition-colors text-sm"
+            >
+              <Download size={16} /> Resume
             </a>
           </div>
         </div>
 
-        <div className="flex-shrink-0 relative w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[380px] h-[300px] sm:h-[360px] lg:h-[440px] mx-auto lg:mx-0 mt-8 lg:mt-0">
+        <div className="flex-shrink-0 relative w-full max-w-[200px] sm:max-w-[240px] lg:max-w-[280px] h-[240px] sm:h-[280px] lg:h-[320px] mx-auto lg:mx-0 mt-6 lg:mt-0">
           <div className="absolute inset-0 bg-gradient-to-tr from-[#00ff88] to-blue-500 blur-[90px] opacity-20"></div>
           <div className="relative w-full h-full">
             <img 
@@ -122,14 +139,14 @@ function Stats() {
     { label: 'TVL Secured', value: '$2M+' },
   ];
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 bg-[#050505] border border-white/5">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 lg:p-8 bg-[#050505] border border-white/5">
       {stats.map((stat, i) => (
         <div key={i} className="text-center md:border-r border-white/10 last:border-0">
-          <div className="text-3xl font-bold mb-1 group-hover:text-[#00ff88] transition-colors">{stat.value}</div>
-          <div className="font-mono text-xs text-gray-500 uppercase tracking-widest">{stat.label}</div>
+          <div className="text-2xl sm:text-3xl font-bold mb-1 group-hover:text-[#00ff88] transition-colors">{stat.value}</div>
+          <div className="font-mono text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest">{stat.label}</div>
         </div>
       ))}
-    </section>
+    </div>
   );
 }
 
@@ -197,7 +214,7 @@ function Audits() {
   ];
 
   return (
-    <section id="audits" className="relative">
+    <section id="audits" className="relative scroll-mt-28">
       <div className="absolute -left-4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#00ff88]/50 to-transparent md:block hidden" />
       
       <h2 className="font-mono text-2xl mb-12 flex items-center gap-3">
@@ -262,7 +279,7 @@ function Projects() {
   ];
 
   return (
-    <section id="projects">
+    <section id="projects" className="scroll-mt-28">
       <h2 className="font-mono text-2xl mb-12 flex items-center gap-3">
         <span className="text-[#00ff88]">03.</span> Featured Projects
       </h2>
@@ -304,7 +321,7 @@ function Projects() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-24 text-center">
+    <section id="contact" className="py-24 text-center scroll-mt-28">
       <p className="font-mono text-[#00ff88] mb-4 text-sm tracking-widest uppercase">04. What's Next?</p>
       <h2 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
       <p className="text-gray-400 max-w-xl mx-auto mb-10 leading-relaxed">
